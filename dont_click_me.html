@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Existing Website + Don’t Click Me</title>
+    <style>
+        /* Button styling */
+        #dontClickBtn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #ff4c4c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+
+        #dontClickBtn:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        /* Overlay styling */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            color: white;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 24px;
+            z-index: 999;
+        }
+
+        #overlay #numbers {
+            margin-top: 20px;
+            font-size: 20px;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+    <!-- Existing website content goes here -->
+    <div>
+        <h1>Welcome to My Website</h1>
+        <p>Some existing content…</p>
+    </div>
+
+    <!-- Don’t Click Me Button -->
+    <button id="dontClickBtn">Don't Click Me</button>
+
+    <!-- Overlay -->
+    <div id="overlay">
+        <div>Here is Nothing</div>
+        <div id="numbers">
+23-2292, 24 2910-2
+10-34, 19 30-415, 6
+10-2 10-3 10-2
+        </div>
+    </div>
+
+    <script>
+        // Show overlay when button is clicked
+        const btn = document.getElementById('dontClickBtn');
+        const overlay = document.getElementById('overlay');
+
+        btn.addEventListener('click', () => {
+            overlay.style.display = 'flex';
+        });
+
+        // Optional: close overlay on click
+        overlay.addEventListener('click', () => {
+            overlay.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
